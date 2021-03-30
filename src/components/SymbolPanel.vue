@@ -11,6 +11,7 @@
       <SymbolButton v-bind:value='"+/-"'
                     v-bind:shadow=true
                     v-bind:style="{  left: 106 + 'px',top:9+'px'}"
+                    @click.native="changeSign"
       />
 
       <SymbolButton v-bind:value='"%"'
@@ -131,6 +132,9 @@ export default {
     },
     prozent() {
       this.$emit('Prozent');
+    },
+    changeSign(e){
+      this.$emit('ChangeSign',e);
     }
   }
 }

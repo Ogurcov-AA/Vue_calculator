@@ -6,6 +6,7 @@
         @Clear="clear"
         @Compute="compute"
         @Prozent="prozent"
+        @ChangeSign="changeSign"
     />
   </div>
 </template>
@@ -106,6 +107,38 @@ export default {
       }
       this.clear('');
       this.result += result;
+    },
+
+    changeSign() {
+      let re = /['+'\-'*'\\/]/;
+      let chis = this.result.split(re);
+      let re2 = /\d+/;
+      let newList = this.result.split(re2);
+      // eslint-disable-next-line use-isnan
+      chis = chis.filter(num => num !== "" && num != NaN);
+      newList = newList.filter(char =>char !==".");
+
+      switch (newList[newList.length - 2][0]) {
+        case "+" : newList[newList.length - 2] = "-"; break;
+        case "-" : newList[newList.length - 2] = "+"; break;
+        case "*": case "/" : {
+          if (newList[newList.length - 2] === "*-" || newList[newList.length - 2] === "/-") {
+            newList[newList.length - 2] = newList[newList.length - 2][0];
+          } else {
+            chis[chis.length - 1] = (eval(chis[chis.length - 1] + "*-1")).toString();
+          }
+          break;
+        }
+        default: newList[0] = '-'; break;
+      }
+      this.clear('');
+      for (let i = 0; i < newList.length; i++) {
+        if (newList[i] !== "" || newList[i] !== null) {
+          this.result += newList[i];
+        }
+        if (chis[i] != null)
+          this.result += chis[i]
+      }
     }
   },
   computed: {
