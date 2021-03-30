@@ -3,6 +3,8 @@
     <Monitor v-bind:result="result"/>
     <SymbolPanel
         @PrintNum="printNum"
+        @Clear="clear"
+        @Compute="compute"
     />
   </div>
 </template>
@@ -23,6 +25,15 @@ export default {
     }
   },
   methods: {
+    clear(e) {
+      console.log('Clear')
+      this.result = e
+    },
+
+    compute() {
+      this.result = (eval(this.result)).toString();
+    },
+
     printNum(char) {
       if (this.result.length < 84) {
         if (char === "+" || char === "-" ||

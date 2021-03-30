@@ -5,6 +5,7 @@
       <SymbolButton v-bind:value='"C"'
                     v-bind:shadow=true
                     v-bind:style="{left:1+'px',top:9+'px'}"
+                    @click.native="clear('0')"
       />
 
       <SymbolButton v-bind:value='"+/-"'
@@ -99,6 +100,7 @@
       <SymbolButton v-bind:value='"="'
                     v-bind:pickout=true
                     v-bind:style="{  left: 312 + 'px',top:10+'px'}"
+                    @click.native="compute"
       />
     </div>
     <hr class="line1V">
@@ -119,6 +121,12 @@ export default {
   methods: {
     printNum(e) {
       this.$emit('PrintNum', e);
+    },
+    clear(e) {
+      this.$emit('Clear', e);
+    },
+    compute() {
+      this.$emit('Compute');
     }
   }
 }
