@@ -1,7 +1,7 @@
 <template>
   <div class="BgMonitor">
     <div class="p">
-      <p></p>
+      <p>{{result}}</p>
     </div>
   </div>
 </template>

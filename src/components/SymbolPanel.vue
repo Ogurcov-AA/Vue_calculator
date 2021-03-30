@@ -18,57 +18,70 @@
       />
       <SymbolButton v-bind:value='"/"'
                     v-bind:style="{  left: 314 + 'px',top:9+'px'}"
+                    @click.native="printNum('/')"
       />
     </div>
     <div class="line2H">
       <hr>
       <SymbolButton v-bind:value="7"
                     v-bind:style="{left:1+'px',top:9+'px'}"
+                    @click.native="printNum('7')"
       />
 
       <SymbolButton v-bind:value="8"
                     v-bind:style="{  left: 106 + 'px',top:9+'px'}"
+                    @click.native="printNum('8')"
       />
 
       <SymbolButton v-bind:value="9"
                     v-bind:style="{  left: 210 + 'px',top:9+'px'}"
+                    @click.native="printNum('9')"
       />
       <SymbolButton v-bind:value='"x"'
                     v-bind:style="{  left: 314 + 'px',top:9+'px'}"
+                    @click.native="printNum('*')"
       />
     </div>
     <div class="line3H">
       <hr>
       <SymbolButton v-bind:value="4"
                     v-bind:style="{left:1+'px',top:9+'px'}"
+                    @click.native="printNum('4')"
       />
 
       <SymbolButton v-bind:value="5"
                     v-bind:style="{  left: 106 + 'px',top:9+'px'}"
+                    @click.native="printNum('5')"
       />
 
       <SymbolButton v-bind:value="6"
                     v-bind:style="{  left: 210 + 'px',top:9+'px'}"
+                    @click.native="printNum('6')"
       />
       <SymbolButton v-bind:value='"-"'
                     v-bind:style="{  left: 314 + 'px',top:9+'px'}"
+                    @click.native="printNum('-')"
       />
     </div>
     <div class="line4H">
       <hr>
       <SymbolButton v-bind:value="1"
                     v-bind:style="{left:1+'px',top:9+'px'}"
+                    @click.native="printNum('1')"
       />
 
       <SymbolButton v-bind:value="2"
                     v-bind:style="{  left: 106 + 'px',top:9+'px'}"
+                    @click.native="printNum('2')"
       />
 
       <SymbolButton v-bind:value="3"
                     v-bind:style="{  left: 210 + 'px',top:9+'px'}"
+                    @click.native="printNum('3')"
       />
       <SymbolButton v-bind:value='"+"'
                     v-bind:style="{  left: 314 + 'px',top:9+'px'}"
+                    @click.native="printNum('+')"
       />
     </div>
     <div class="line5H">
@@ -76,10 +89,12 @@
       <SymbolButton v-bind:value="0"
                     v-bind:doubleCell="true"
                     v-bind:style="{left: 0+'px',top:9+'px'}"
+                    @click.native="printNum('0')"
       />
 
       <SymbolButton v-bind:value='"."'
                     v-bind:style="{  left: 210 + 'px',top:9+'px'}"
+                    @click.native="printNum('.')"
       />
       <SymbolButton v-bind:value='"="'
                     v-bind:pickout=true
@@ -100,6 +115,11 @@ import SymbolButton from '@/components/SymbolButton'
 export default {
   components: {
     SymbolButton
+  },
+  methods: {
+    printNum(e) {
+      this.$emit('PrintNum', e);
+    }
   }
 }
 </script>
