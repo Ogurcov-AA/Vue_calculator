@@ -2,24 +2,107 @@
   <div class="line">
     <div class="line1H">
       <hr>
+      <SymbolButton v-bind:value='"C"'
+                    v-bind:shadow=true
+                    v-bind:style="{left:1+'px',top:9+'px'}"
+      />
+
+      <SymbolButton v-bind:value='"+/-"'
+                    v-bind:shadow=true
+                    v-bind:style="{  left: 106 + 'px',top:9+'px'}"
+      />
+
+      <SymbolButton v-bind:value='"%"'
+                    v-bind:shadow=true
+                    v-bind:style="{  left: 210 + 'px',top:9+'px'}"
+      />
+      <SymbolButton v-bind:value='"/"'
+                    v-bind:style="{  left: 314 + 'px',top:9+'px'}"
+      />
     </div>
     <div class="line2H">
       <hr>
+      <SymbolButton v-bind:value="7"
+                    v-bind:style="{left:1+'px',top:9+'px'}"
+      />
+
+      <SymbolButton v-bind:value="8"
+                    v-bind:style="{  left: 106 + 'px',top:9+'px'}"
+      />
+
+      <SymbolButton v-bind:value="9"
+                    v-bind:style="{  left: 210 + 'px',top:9+'px'}"
+      />
+      <SymbolButton v-bind:value='"x"'
+                    v-bind:style="{  left: 314 + 'px',top:9+'px'}"
+      />
     </div>
     <div class="line3H">
       <hr>
+      <SymbolButton v-bind:value="4"
+                    v-bind:style="{left:1+'px',top:9+'px'}"
+      />
+
+      <SymbolButton v-bind:value="5"
+                    v-bind:style="{  left: 106 + 'px',top:9+'px'}"
+      />
+
+      <SymbolButton v-bind:value="6"
+                    v-bind:style="{  left: 210 + 'px',top:9+'px'}"
+      />
+      <SymbolButton v-bind:value='"-"'
+                    v-bind:style="{  left: 314 + 'px',top:9+'px'}"
+      />
     </div>
     <div class="line4H">
       <hr>
+      <SymbolButton v-bind:value="1"
+                    v-bind:style="{left:1+'px',top:9+'px'}"
+      />
+
+      <SymbolButton v-bind:value="2"
+                    v-bind:style="{  left: 106 + 'px',top:9+'px'}"
+      />
+
+      <SymbolButton v-bind:value="3"
+                    v-bind:style="{  left: 210 + 'px',top:9+'px'}"
+      />
+      <SymbolButton v-bind:value='"+"'
+                    v-bind:style="{  left: 314 + 'px',top:9+'px'}"
+      />
     </div>
     <div class="line5H">
       <hr>
+      <SymbolButton v-bind:value="0"
+                    v-bind:doubleCell="true"
+                    v-bind:style="{left: 0+'px',top:9+'px'}"
+      />
+
+      <SymbolButton v-bind:value='"."'
+                    v-bind:style="{  left: 210 + 'px',top:9+'px'}"
+      />
+      <SymbolButton v-bind:value='"="'
+                    v-bind:pickout=true
+                    v-bind:style="{  left: 312 + 'px',top:10+'px'}"
+      />
     </div>
     <hr class="line1V">
     <hr class="line2V">
     <hr class="line3V">
   </div>
 </template>
+
+
+<script>
+import SymbolButton from '@/components/SymbolButton'
+
+
+export default {
+  components: {
+    SymbolButton
+  }
+}
+</script>
 
 <style scoped>
 .line {
