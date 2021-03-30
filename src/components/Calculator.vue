@@ -5,6 +5,7 @@
         @PrintNum="printNum"
         @Clear="clear"
         @Compute="compute"
+        @Prozent="prozent"
     />
   </div>
 </template>
@@ -85,6 +86,26 @@ export default {
           this.result.substring(this.result.lastIndexOf("/"))[1] === "0" && this.result.lastIndexOf("/") !== -1) {
         return true;
       } else false;
+    },
+    prozent() {
+      let re = /['+'\-'*'\\/]/;
+      let chis = this.result.split(re);
+      let re2 = /\d+/;
+      let newList = this.result.split(re2);
+      // eslint-disable-next-line use-isnan
+      newList = newList.filter(op => op !== "" && op !== NaN);
+      // eslint-disable-next-line use-isnan
+      chis = chis.filter(num => num !== "" && num !== NaN);
+      let percent = parseFloat(chis[0]) * (parseFloat(chis[1]) / 100);
+      let result = 0;
+      switch (newList[0]) {
+        case "+": result = parseFloat(chis[0]) + percent; break;
+        case "-": result = parseFloat(chis[0]) - percent; break;
+        case "*": result = percent; break;
+        case "/": result = parseFloat(chis[0]) / (parseFloat(chis[1]) / 100); break;
+      }
+      this.clear('');
+      this.result += result;
     }
   },
   computed: {

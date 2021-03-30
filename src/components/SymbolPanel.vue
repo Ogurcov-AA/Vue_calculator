@@ -16,6 +16,7 @@
       <SymbolButton v-bind:value='"%"'
                     v-bind:shadow=true
                     v-bind:style="{  left: 210 + 'px',top:9+'px'}"
+                    @click.native="prozent"
       />
       <SymbolButton v-bind:value='"/"'
                     v-bind:style="{  left: 314 + 'px',top:9+'px'}"
@@ -127,6 +128,9 @@ export default {
     },
     compute() {
       this.$emit('Compute');
+    },
+    prozent() {
+      this.$emit('Prozent');
     }
   }
 }
